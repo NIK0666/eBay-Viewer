@@ -15,14 +15,14 @@ class UICoordinator {
         window = UIWindow(frame: frame)
         window?.makeKeyAndVisible()
         
-//        let router = StartRouter()
-//        let viewModel = StartViewModel.init(with: router)
-//        let rootViewConttroller = StartViewController()
-//        
-//        rootViewConttroller.viewModel = viewModel
-//        router.baseVC = rootViewConttroller
-//        
-//        window?.rootViewController = UINavigationController(rootViewController: rootViewConttroller)
+        let router = StartRouter()
+        let viewModel = StartViewModel.init(with: router)
+        let rootViewConttroller = StartViewController()
+        
+        rootViewConttroller.viewModel = viewModel
+        router.baseVC = rootViewConttroller
+        
+        window?.rootViewController = UINavigationController(rootViewController: rootViewConttroller)
     }
 }
 

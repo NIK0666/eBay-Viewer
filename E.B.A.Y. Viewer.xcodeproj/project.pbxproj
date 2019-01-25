@@ -20,6 +20,11 @@
 		23F2CD9121FB348800FFFCB7 /* UICoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CD9021FB348700FFFCB7 /* UICoordinator.swift */; };
 		23F2CD9621FB34AB00FFFCB7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CD9321FB34AB00FFFCB7 /* UIView+Extension.swift */; };
 		23F2CD9721FB34AB00FFFCB7 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CD9421FB34AB00FFFCB7 /* String+Extension.swift */; };
+		23F2CD9D21FB854C00FFFCB7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CD9B21FB854C00FFFCB7 /* StartViewController.swift */; };
+		23F2CD9E21FB854C00FFFCB7 /* StartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23F2CD9C21FB854C00FFFCB7 /* StartViewController.xib */; };
+		23F2CDA021FB859400FFFCB7 /* StartRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CD9F21FB859400FFFCB7 /* StartRouter.swift */; };
+		23F2CDA221FB862300FFFCB7 /* StartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CDA121FB862300FFFCB7 /* StartViewModel.swift */; };
+		23F2CDA521FB8EA200FFFCB7 /* NUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F2CDA421FB8EA200FFFCB7 /* NUButton.swift */; };
 		9FAEEAD8C448DDAF5643B8C8 /* Pods_E_B_A_Y__Viewer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BCF4C531C9FA015D25F9457 /* Pods_E_B_A_Y__Viewer.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +55,11 @@
 		23F2CD9021FB348700FFFCB7 /* UICoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICoordinator.swift; sourceTree = "<group>"; };
 		23F2CD9321FB34AB00FFFCB7 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		23F2CD9421FB34AB00FFFCB7 /* String+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		23F2CD9B21FB854C00FFFCB7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		23F2CD9C21FB854C00FFFCB7 /* StartViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StartViewController.xib; sourceTree = "<group>"; };
+		23F2CD9F21FB859400FFFCB7 /* StartRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartRouter.swift; sourceTree = "<group>"; };
+		23F2CDA121FB862300FFFCB7 /* StartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewModel.swift; sourceTree = "<group>"; };
+		23F2CDA421FB8EA200FFFCB7 /* NUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUButton.swift; sourceTree = "<group>"; };
 		435BAB8197C5EF3DA1B41F81 /* Pods-E.B.A.Y. Viewer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E.B.A.Y. Viewer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-E.B.A.Y. Viewer/Pods-E.B.A.Y. Viewer.debug.xcconfig"; sourceTree = "<group>"; };
 		55330C5DEF9F177C0E6B4D45 /* Pods-E.B.A.Y. ViewerTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E.B.A.Y. ViewerTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-E.B.A.Y. ViewerTests/Pods-E.B.A.Y. ViewerTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9BCF4C531C9FA015D25F9457 /* Pods_E_B_A_Y__Viewer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_B_A_Y__Viewer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +142,7 @@
 				23F2CD9921FB34FD00FFFCB7 /* Screens */,
 				23F2CD8421FB340A00FFFCB7 /* Protocols */,
 				23F2CD9221FB34AB00FFFCB7 /* Extensions */,
+				23F2CDA321FB8E9300FFFCB7 /* Views */,
 				23F2CD6221FB338800FFFCB7 /* AppDelegate.swift */,
 				23F2CD9021FB348700FFFCB7 /* UICoordinator.swift */,
 			);
@@ -178,8 +189,20 @@
 		23F2CD9A21FB806D00FFFCB7 /* Start */ = {
 			isa = PBXGroup;
 			children = (
+				23F2CDA121FB862300FFFCB7 /* StartViewModel.swift */,
+				23F2CD9B21FB854C00FFFCB7 /* StartViewController.swift */,
+				23F2CD9C21FB854C00FFFCB7 /* StartViewController.xib */,
+				23F2CD9F21FB859400FFFCB7 /* StartRouter.swift */,
 			);
 			path = Start;
+			sourceTree = "<group>";
+		};
+		23F2CDA321FB8E9300FFFCB7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				23F2CDA421FB8EA200FFFCB7 /* NUButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		8142D1C37649D7A1289DB3B2 /* Frameworks */ = {
@@ -288,6 +311,7 @@
 			files = (
 				23F2CD6D21FB338900FFFCB7 /* LaunchScreen.storyboard in Resources */,
 				23F2CD6A21FB338900FFFCB7 /* Assets.xcassets in Resources */,
+				23F2CD9E21FB854C00FFFCB7 /* StartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,11 +408,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23F2CDA021FB859400FFFCB7 /* StartRouter.swift in Sources */,
+				23F2CDA221FB862300FFFCB7 /* StartViewModel.swift in Sources */,
 				23F2CD9121FB348800FFFCB7 /* UICoordinator.swift in Sources */,
 				23F2CD8A21FB341E00FFFCB7 /* MVVMViewController.swift in Sources */,
+				23F2CDA521FB8EA200FFFCB7 /* NUButton.swift in Sources */,
 				23F2CD9621FB34AB00FFFCB7 /* UIView+Extension.swift in Sources */,
 				23F2CD8B21FB341E00FFFCB7 /* RouterProtocol.swift in Sources */,
 				23F2CD8D21FB346700FFFCB7 /* NibLoadable.swift in Sources */,
+				23F2CD9D21FB854C00FFFCB7 /* StartViewController.swift in Sources */,
 				23F2CD6321FB338800FFFCB7 /* AppDelegate.swift in Sources */,
 				23F2CD8F21FB346E00FFFCB7 /* TypeAliases.swift in Sources */,
 				23F2CD9721FB34AB00FFFCB7 /* String+Extension.swift in Sources */,
