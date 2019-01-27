@@ -15,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private let coordinator = UICoordinator()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
         coordinator.presentStartScreen(&window)
+        
+        //UINavigationBar.appearance().setBackgroundImage(UIImage.image(from: UIColor.black, frame: CGRect(x: 0, y: 0, width: 340, height: 64)), for: .default)
+        UINavigationBar.appearance().tintColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
         return true
     }
     

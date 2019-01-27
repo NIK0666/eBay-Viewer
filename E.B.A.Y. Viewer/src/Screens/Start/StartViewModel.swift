@@ -7,15 +7,13 @@
 //
 
 import Foundation
-
-import Foundation
 import RxSwift
 import RxCocoa
 
 protocol StartViewModelProtocol: ViewModelProtocol {
     
 //    var isStartActive: BehaviorRelay<Bool> { get }
-//    var enterLocationTapped: PublishSubject<Void> { get }
+    var searchButtonTapped: PublishSubject<Void> { get }
     
 }
 
@@ -23,7 +21,7 @@ protocol StartViewModelProtocol: ViewModelProtocol {
 class StartViewModel: StartViewModelProtocol {
     
 //    let isStartActive = BehaviorRelay<Bool>(value: false)
-//    let currentLocationTapped = PublishSubject<Void>()
+    let searchButtonTapped = PublishSubject<Void>()
     
     var router: RouterProtocol
     
@@ -37,5 +35,10 @@ class StartViewModel: StartViewModelProtocol {
     
     func setupBindings() {
        
+        searchButtonTapped.asObservable().subscribe({[weak self] _ in
+            self?.router.enqueueRoute(with: StartRouter.RouteType.search)
+        }).disposed(by: disposeBag)
+        
+        
     }
 }

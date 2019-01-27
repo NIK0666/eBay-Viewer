@@ -13,6 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartViewController" customModule="E_B_A_Y__Viewer" customModuleProvider="target">
             <connections>
+                <outlet property="categoriesButton" destination="kQh-Sw-4Rd" id="ciG-0k-Dwi"/>
+                <outlet property="searchButton" destination="ACP-l3-vRB" id="f3A-cx-WYT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

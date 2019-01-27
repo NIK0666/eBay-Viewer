@@ -12,13 +12,21 @@ import RxCocoa
 
 class StartViewController: UIViewController, MVVMViewController {
 
+    @IBOutlet private weak var categoriesButton: NUButton!
+    @IBOutlet private weak var searchButton: NUButton!
+    
     private let disposeBag = DisposeBag()
     var viewModel: StartViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        setupBindings()
         // Do any additional setup after loading the view.
+    }
+    
+    private func setupBindings() {
+        searchButton.rx.tap.bind(to: viewModel.searchButtonTapped).disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,7 +45,8 @@ extension StartViewController {
         private init() {}
         
         static func decorate(_ vc: StartViewController) {
-            vc.navigationController?.setNavigationBarHidden(true, animated: false)
+            vc.navigationController?.setNavigationBarHidden(true, animated: true)
+            vc.title = " "
         }
     }
 }
