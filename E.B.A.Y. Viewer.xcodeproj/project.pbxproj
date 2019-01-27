@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21942313E61F62F138AD182C /* Pods_E_B_A_Y__ViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B0CBC998A87F24EB30A7AF /* Pods_E_B_A_Y__ViewerTests.framework */; };
+		237495FA21FDB3760038857A /* FindItemsByKeywordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */; };
 		23E1112021FCBD7B00A348C8 /* NUSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1111F21FCBD7B00A348C8 /* NUSearchBar.swift */; };
 		23E1112421FCC24900A348C8 /* SearchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1112221FCC24900A348C8 /* SearchCell.swift */; };
 		23E1112521FCC24900A348C8 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23E1112321FCC24900A348C8 /* SearchCell.xib */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindItemsByKeywordsResponse.swift; sourceTree = "<group>"; };
 		23E1111F21FCBD7B00A348C8 /* NUSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUSearchBar.swift; sourceTree = "<group>"; };
 		23E1112221FCC24900A348C8 /* SearchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCell.swift; sourceTree = "<group>"; };
 		23E1112321FCC24900A348C8 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
@@ -122,6 +124,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		237495F821FDB3200038857A /* ebay_responces */ = {
+			isa = PBXGroup;
+			children = (
+				237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */,
+			);
+			path = ebay_responces;
+			sourceTree = "<group>";
+		};
 		23E1112121FCC16A00A348C8 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -146,6 +156,7 @@
 		23E1112721FCD29900A348C8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				237495F821FDB3200038857A /* ebay_responces */,
 				23E1112821FCD2AB00A348C8 /* SearchHintModel.swift */,
 			);
 			path = Models;
@@ -522,6 +533,7 @@
 				23F2CD8D21FB346700FFFCB7 /* NibLoadable.swift in Sources */,
 				23E1112921FCD2AB00A348C8 /* SearchHintModel.swift in Sources */,
 				23F2CD9D21FB854C00FFFCB7 /* StartViewController.swift in Sources */,
+				237495FA21FDB3760038857A /* FindItemsByKeywordsResponse.swift in Sources */,
 				23F2B9E321FC447C007B0616 /* SearchViewController.swift in Sources */,
 				23F10BA921FBA27300B8F1A4 /* UIImage+Extension.swift in Sources */,
 				23E1113121FCEE0200A348C8 /* ResultViewModel.swift in Sources */,
