@@ -19,19 +19,18 @@ class SearchCell: UITableViewCell, NibLoadable {
         didSet {
             
             let preparedString = NSMutableAttributedString(string: searchHint.title)
-            if let prefix = searchHint.prefix {
-                var r: NSRange!
-                if let range = preparedString.string.range(of: prefix) {
-                    r = NSMakeRange(range.upperBound.encodedOffset, preparedString.string.count - range.upperBound.encodedOffset)
-                } else {
-                    r = NSMakeRange(0, preparedString.string.count)
-                }
-                preparedString.addAttributes(postfixAttributes, range: r)
-            }
             
-            if let category = searchHint.category {
-                preparedString.append(NSAttributedString(string: "\n\(category)"))
+            var r: NSRange!
+            if let range = preparedString.string.range(of: searchHint.prefix) {
+                r = NSMakeRange(range.upperBound.encodedOffset, preparedString.string.count - range.upperBound.encodedOffset)
+            } else {
+                r = NSMakeRange(0, preparedString.string.count)
             }
+            preparedString.addAttributes(postfixAttributes, range: r)
+            
+//            if let category = searchHint.category {
+//                preparedString.append(NSAttributedString(string: "\n\(category)"))
+//            }
             
             DispatchQueue.main.async {
                 self.contentLabel.attributedText = preparedString

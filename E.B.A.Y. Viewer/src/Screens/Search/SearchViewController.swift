@@ -40,6 +40,7 @@ class SearchViewController: UITableViewController/*, UISearchBarDelegate*/ {
         searchBar.rx.textDidEndEditing.subscribe({[weak self] _ in
             self?.navigationItem.setHidesBackButton(false, animated: true)
         }).disposed(by: disposeBag)
+        searchBar.rx.text.bind(to: viewModel.searchText).disposed(by: disposeBag)
         
         viewModel.results.asObservable().bind(to:tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.name) as! SearchCell
@@ -51,6 +52,7 @@ class SearchViewController: UITableViewController/*, UISearchBarDelegate*/ {
         tableView.rx.itemSelected.subscribe({ [weak self] indexPath in
             self?.viewModel.searchIndexSelected.onNext(indexPath.element!.item)
         }).disposed(by: disposeBag)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

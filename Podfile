@@ -10,6 +10,7 @@ target 'E.B.A.Y. Viewer' do
   pod 'Alamofire'
   pod 'RxSwift'
   pod 'RxCocoa'
+  pod 'SwiftyJSON'
   target 'E.B.A.Y. ViewerTests' do
     inherit! :search_paths
     # Pods for testing

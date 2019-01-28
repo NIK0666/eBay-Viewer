@@ -33,5 +33,16 @@ class ResultViewModel: ResultViewModelProtocol {
     
     func setupBindings() {
         
+        
+        
+        //                self?.service.request(by: keyword, success: { model in
+        //                    if let items = model.searchResult.first?.item {
+        //                        print(items.count)
+        //                    } else {
+        //                        print("NOT FOUND")
+        //                    }
+        //                }) { error in
+        //                    print("ERROR")
+        //                }
     }
 }

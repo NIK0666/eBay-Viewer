@@ -11,26 +11,23 @@ import RxSwift
 import RxCocoa
 
 protocol SearchViewModelProtocol: ViewModelProtocol {
+    
     var results: BehaviorRelay<[SearchHintModel]> { get }
     var searchIndexSelected: PublishSubject<Int> { get }
+    var searchText: PublishSubject<String?> { get }
     
 }
 
 
 class SearchViewModel: SearchViewModelProtocol {
     
-    let results = BehaviorRelay<[SearchHintModel]>(value: [
-        SearchHintModel(title: "huawei p20 pro", prefix: "hua", category: "In Cell Phones & Smartphones"),
-        SearchHintModel(title: "huawei p20 pro", prefix: "hua", category: "In Cell Phone Accessories"),
-        SearchHintModel(title: "hugo boss", prefix: "hua", category: nil),
-        SearchHintModel(title: "hunting", prefix: "hua", category: nil),
-        SearchHintModel(title: "huawei p20 lite case", prefix: "hua", category: nil)
-        ])
-    
+    let results = BehaviorRelay<[SearchHintModel]>(value: [])
+    var searchText = PublishSubject<String?>()
     let searchIndexSelected = PublishSubject<Int>()
-   
-    var router: RouterProtocol
     
+    var router: RouterProtocol
+//    let service = FindingService()
+    let service = AutoSugService()
     private let disposeBag = DisposeBag()
     
     init(with router: RouterProtocol) {
@@ -46,5 +43,25 @@ class SearchViewModel: SearchViewModelProtocol {
                 self?.router.enqueueRoute(with: SearchRouter.RouteType.result(hint: item), animated: true, completion: nil)
             }
         }).disposed(by: disposeBag)
+        searchText.debounce(0.5, scheduler: MainScheduler.instance)
+            .subscribe({[weak self] str in
+                
+                guard let keyword = str.element! else { return }
+                guard keyword.count > 1 else { return }
+                
+                self?.service.request(by: keyword, success: {[weak self] arr in
+                    
+                    print("SUCCESS")
+                    
+                    self?.results.accept(arr.map({ elem -> SearchHintModel in
+                        return SearchHintModel(title: elem, prefix: keyword.lowercased())
+                    }))
+                   
+                }) { error in
+                    print("ERROR")
+                }
+                
+               
+            }).disposed(by: disposeBag)
     }
 }

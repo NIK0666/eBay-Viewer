@@ -4,7 +4,7 @@
 //
 //  Created by NIKO on 27/01/2019.
 //  Copyright © 2019 NIKO. All rights reserved.
-//
+
 
 import Foundation
 
@@ -21,7 +21,7 @@ struct PaginationOutput: Codable {
 
 struct SearchResult: Codable {
     let count: String
-    let item: [Item]
+    let item: [Item]?
     
     enum CodingKeys: String, CodingKey {
         case count = "@count"
@@ -35,7 +35,7 @@ struct Item: Codable {
     let primaryCategory: [AryCategory]
     let galleryURL: [String]?
     let viewItemURL: [String]
-    let paymentMethod: [PaymentMethod]?
+    let paymentMethod: [String]?
     let autoPay: [String]
     let postalCode: [String]?
     let location: [String]
@@ -44,7 +44,7 @@ struct Item: Codable {
     let sellingStatus: [SellingStatus]
     let listingInfo: [ListingInfo]
     let returnsAccepted: [String]
-    let condition: [Condition]
+    let condition: [Condition]?
     let isMultiVariationListing, topRatedListing: [String]
     let subtitle: [String]?
     let secondaryCategory: [AryCategory]?
@@ -65,7 +65,7 @@ struct Item: Codable {
 
 struct Condition: Codable {
     let conditionID: [String]
-    let conditionDisplayName: [ConditionDisplayName]
+    let conditionDisplayName: [String]
     
     enum CodingKeys: String, CodingKey {
         case conditionID = "conditionId"
@@ -73,27 +73,10 @@ struct Condition: Codable {
     }
 }
 
-enum ConditionDisplayName: String, Codable {
-    case brandNew = "Brand New"
-    case good = "Good"
-    case likeNew = "Like New"
-    case manufacturerRefurbished = "Manufacturer refurbished"
-    case new = "New"
-    case newOtherSeeDetails = "New other (see details)"
-    case newWithBox = "New with box"
-    case newWithTags = "New with tags"
-    case newWithoutBox = "New without box"
-    case newWithoutTags = "New without tags"
-    case preOwned = "Pre-owned"
-    case sellerRefurbished = "Seller refurbished"
-    case used = "Used"
-    case veryGood = "Very Good"
-}
-
 struct DiscountPriceInfo: Codable {
     let originalRetailPrice: [OriginalRetailPrice]?
     let pricingTreatment: [PricingTreatment]
-    let soldOnEbay, soldOffEbay: [String]
+    let soldOnEbay, soldOffEbay: [String]?
 }
 
 struct OriginalRetailPrice: Codable {
@@ -108,6 +91,7 @@ struct OriginalRetailPrice: Codable {
 
 enum PricingTreatment: String, Codable {
     case stp = "STP"
+    case map = "MAP"
 }
 
 enum GlobalID: String, Codable {
@@ -115,6 +99,7 @@ enum GlobalID: String, Codable {
     case ebayEnca = "EBAY-ENCA"
     case ebayMotor = "EBAY-MOTOR"
     case ebayUs = "EBAY-US"
+    case ebayGb = "EBAY-GB"
 }
 
 struct ListingInfo: Codable {
@@ -130,14 +115,6 @@ enum ListingType: String, Codable {
     case auctionWithBIN = "AuctionWithBIN"
     case fixedPrice = "FixedPrice"
     case storeInventory = "StoreInventory"
-}
-
-enum PaymentMethod: String, Codable {
-    case amEx = "AmEx"
-    case cashOnPickup = "CashOnPickup"
-    case discover = "Discover"
-    case payPal = "PayPal"
-    case visaMC = "VisaMC"
 }
 
 struct AryCategory: Codable {
@@ -193,4 +170,5 @@ enum ShippingType: String, Codable {
     case flatDomesticCalculatedInternational = "FlatDomesticCalculatedInternational"
     case free = "Free"
     case freePickup = "FreePickup"
+    case freight = "Freight"
 }

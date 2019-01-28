@@ -10,6 +10,6 @@ import Foundation
 
 struct SearchHintModel {
     let title: String
-    let prefix: String?
-    let category: String?    
+    let prefix: String
+    //let category: String?    
 }
