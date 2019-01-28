@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="StartViewController" customModule="E_B_A_Y__Viewer" customModuleProvider="target">
+            <connections>
+                <outlet property="categoriesButton" destination="kQh-Sw-4Rd" id="ciG-0k-Dwi"/>
+                <outlet property="searchButton" destination="ACP-l3-vRB" id="f3A-cx-WYT"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nva-RZ-PkX">
+                    <rect key="frame" x="0.0" y="158" width="375" height="96"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="96" id="cwh-iS-7ns"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Easy to sell. Just buy." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SuD-IT-E4O">
+                    <rect key="frame" x="16" y="319.5" width="343" height="48"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="P0L-7Q-CqH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
+                    <color key="textColor" name="lightGrayColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-l3-vRB" customClass="NUButton" customModule="E_B_A_Y__Viewer" customModuleProvider="target">
+                    <rect key="frame" x="44" y="585" width="287" height="38"/>
+                    <color key="backgroundColor" name="lightGrayColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="FXU-22-oiE"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <state key="normal" title="SEARCH BY KEYWORDS">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQh-Sw-4Rd" customClass="NUButton" customModule="E_B_A_Y__Viewer" customModuleProvider="target">
+                    <rect key="frame" x="44" y="531" width="287" height="38"/>
+                    <color key="backgroundColor" name="lightGrayColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="38" id="O52-oj-j0B"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                    <state key="normal" title="SHOW CATEGORIES">
+                        <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SuD-IT-E4O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FFg-36-qpF"/>
+                <constraint firstItem="Nva-RZ-PkX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="GLg-3g-U4b"/>
+                <constraint firstItem="ACP-l3-vRB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="44" id="QTL-tP-1hY"/>
+                <constraint firstItem="kQh-Sw-4Rd" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="44" id="XPs-ei-Yk7"/>
+                <constraint firstItem="Nva-RZ-PkX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="aZN-id-p3g"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kQh-Sw-4Rd" secondAttribute="trailing" constant="44" id="ebO-kf-Mhg"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SuD-IT-E4O" secondAttribute="trailing" constant="16" id="edG-Y0-RYF"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="ACP-l3-vRB" secondAttribute="bottom" constant="44" id="hnX-gw-Rb2"/>
+                <constraint firstItem="ACP-l3-vRB" firstAttribute="top" secondItem="kQh-Sw-4Rd" secondAttribute="bottom" constant="16" id="jNG-9U-GNp"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="ACP-l3-vRB" secondAttribute="trailing" constant="44" id="jjh-Pd-zng"/>
+                <constraint firstItem="SuD-IT-E4O" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="rxD-ao-iin"/>
+                <constraint firstItem="Nva-RZ-PkX" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" multiplier="0.6" id="z01-nZ-IDH"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo" width="178" height="82"/>
+        <namedColor name="lightGrayColor">
+            <color red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
