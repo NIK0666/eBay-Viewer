@@ -29,7 +29,7 @@ class ResultViewController: UITableViewController {
         
         viewModel.results.asObservable().bind(to:tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: ResultCell.name) as! ResultCell
-            //cell.searchHint = element
+            cell.item = element
             return cell
             
             }.disposed(by: disposeBag)

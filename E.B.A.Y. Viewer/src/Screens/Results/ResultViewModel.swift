@@ -11,24 +11,33 @@ import RxSwift
 import RxCocoa
 
 protocol ResultViewModelProtocol: ViewModelProtocol {
-    var results: BehaviorRelay<[String]> { get }
+    var results: BehaviorRelay<[FindingResultItem]> { get }
 }
 
 
 class ResultViewModel: ResultViewModelProtocol {
     
-    let results = BehaviorRelay<[String]>(value: ["", "", "", "", "", "", ""])
+    let results = BehaviorRelay<[FindingResultItem]>(value: [])
     
     var router: RouterProtocol
     var hint: SearchHintModel
     
     private let disposeBag = DisposeBag()
     
+    let service = FindingService()
+
     init(with router: RouterProtocol, searchBy hint: SearchHintModel) {
         self.router = router
         self.hint = hint
         
         setupBindings()
+        
+        service.request(by: hint.title, success: {[weak self] data  in
+            guard let items = data.searchResult.first?.item else { return }
+            self?.results.accept(items)
+        }) { error  in
+            
+        }
     }
     
     func setupBindings() {

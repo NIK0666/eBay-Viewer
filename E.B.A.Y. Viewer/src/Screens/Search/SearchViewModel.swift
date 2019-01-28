@@ -15,6 +15,7 @@ protocol SearchViewModelProtocol: ViewModelProtocol {
     var results: BehaviorRelay<[SearchHintModel]> { get }
     var searchIndexSelected: PublishSubject<Int> { get }
     var searchText: PublishSubject<String?> { get }
+    var onSearch: PublishSubject<String> { get }
     
 }
 
@@ -24,9 +25,9 @@ class SearchViewModel: SearchViewModelProtocol {
     let results = BehaviorRelay<[SearchHintModel]>(value: [])
     var searchText = PublishSubject<String?>()
     let searchIndexSelected = PublishSubject<Int>()
+    let onSearch = PublishSubject<String>()
     
     var router: RouterProtocol
-//    let service = FindingService()
     let service = AutoSugService()
     private let disposeBag = DisposeBag()
     
@@ -43,7 +44,14 @@ class SearchViewModel: SearchViewModelProtocol {
                 self?.router.enqueueRoute(with: SearchRouter.RouteType.result(hint: item), animated: true, completion: nil)
             }
         }).disposed(by: disposeBag)
-        searchText.debounce(0.5, scheduler: MainScheduler.instance)
+        
+        onSearch.subscribe({[weak self] text in
+            guard text.element!.count > 1 else { return }
+            let item = SearchHintModel(title: text.element!, prefix: "")
+            self?.router.enqueueRoute(with: SearchRouter.RouteType.result(hint: item), animated: true, completion: nil)
+        }).disposed(by: disposeBag)
+        
+        searchText.debounce(0.3, scheduler: MainScheduler.instance)
             .subscribe({[weak self] str in
                 
                 guard let keyword = str.element! else { return }
