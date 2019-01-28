@@ -21,7 +21,7 @@ struct PaginationOutput: Codable {
 
 struct SearchResult: Codable {
     let count: String
-    let item: [Item]?
+    let item: [FindingResultItem]?
     
     enum CodingKeys: String, CodingKey {
         case count = "@count"
@@ -29,9 +29,9 @@ struct SearchResult: Codable {
     }
 }
 
-struct Item: Codable {
+struct FindingResultItem: Codable {
     let itemID, title: [String]
-    let globalID: [GlobalID]
+    let globalID: [String]
     let primaryCategory: [AryCategory]
     let galleryURL: [String]?
     let viewItemURL: [String]

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		21942313E61F62F138AD182C /* Pods_E_B_A_Y__ViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B0CBC998A87F24EB30A7AF /* Pods_E_B_A_Y__ViewerTests.framework */; };
+		232653E421FEEB6500F2AE9D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232653E321FEEB6500F2AE9D /* UIImageView+Extension.swift */; };
+		232653E621FF0B1200F2AE9D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232653E521FF0B1200F2AE9D /* Date+Extension.swift */; };
 		237495FA21FDB3760038857A /* FindItemsByKeywordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */; };
 		237495FD21FDBC140038857A /* FindingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237495FC21FDBC140038857A /* FindingService.swift */; };
 		23E1112021FCBD7B00A348C8 /* NUSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1111F21FCBD7B00A348C8 /* NUSearchBar.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		232653E321FEEB6500F2AE9D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
+		232653E521FF0B1200F2AE9D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindItemsByKeywordsResponse.swift; sourceTree = "<group>"; };
 		237495FC21FDBC140038857A /* FindingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindingService.swift; sourceTree = "<group>"; };
 		23E1111F21FCBD7B00A348C8 /* NUSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NUSearchBar.swift; sourceTree = "<group>"; };
@@ -277,6 +281,8 @@
 				23F2CD9421FB34AB00FFFCB7 /* String+Extension.swift */,
 				23F10BA821FBA27300B8F1A4 /* UIImage+Extension.swift */,
 				23E1112A21FCE22600A348C8 /* NSMutableAttributedString+Extension.swift */,
+				232653E321FEEB6500F2AE9D /* UIImageView+Extension.swift */,
+				232653E521FF0B1200F2AE9D /* Date+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -536,6 +542,7 @@
 				23F2CDA721FB954800FFFCB7 /* NUTextField.swift in Sources */,
 				23E1113321FCEE1400A348C8 /* ResultRouter.swift in Sources */,
 				23E1112421FCC24900A348C8 /* SearchCell.swift in Sources */,
+				232653E621FF0B1200F2AE9D /* Date+Extension.swift in Sources */,
 				23F2CDA021FB859400FFFCB7 /* StartRouter.swift in Sources */,
 				23F2CDA221FB862300FFFCB7 /* StartViewModel.swift in Sources */,
 				23F2CD9121FB348800FFFCB7 /* UICoordinator.swift in Sources */,
@@ -556,6 +563,7 @@
 				23E1112921FCD2AB00A348C8 /* SearchHintModel.swift in Sources */,
 				23F2CD9D21FB854C00FFFCB7 /* StartViewController.swift in Sources */,
 				237495FA21FDB3760038857A /* FindItemsByKeywordsResponse.swift in Sources */,
+				232653E421FEEB6500F2AE9D /* UIImageView+Extension.swift in Sources */,
 				23F2B9E321FC447C007B0616 /* SearchViewController.swift in Sources */,
 				23F10BA921FBA27300B8F1A4 /* UIImage+Extension.swift in Sources */,
 				23E1113121FCEE0200A348C8 /* ResultViewModel.swift in Sources */,

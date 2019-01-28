@@ -28,10 +28,6 @@ class SearchCell: UITableViewCell, NibLoadable {
             }
             preparedString.addAttributes(postfixAttributes, range: r)
             
-//            if let category = searchHint.category {
-//                preparedString.append(NSAttributedString(string: "\n\(category)"))
-//            }
-            
             DispatchQueue.main.async {
                 self.contentLabel.attributedText = preparedString
             }

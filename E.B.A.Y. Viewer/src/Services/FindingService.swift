@@ -18,11 +18,18 @@ class FindingService: NetworkServiceProtocol {
     var API_KEY: String = "EBAY_API_KEY"
     var host: String = "https://svcs.ebay.com/services"
     var api_version: String = "v1"
-    var service_version: String = "1.13.0"    
+    var service_version: String = "1.13.0"
     
     func request(by keywords: String, success: @escaping ItemClosure<FindItemsByKeywordsResponse>,  failure: @escaping ItemClosure<Error>) {
         
-        let parameters = ["OPERATION-NAME": "findItemsByKeywords", "SERVICE-VERSION": service_version, "SECURITY-APPNAME": API_KEY, "RESPONSE-DATA-FORMAT": "JSON", "keywords": keywords]
+        let parameters = [
+            "OPERATION-NAME": "findItemsByKeywords",
+            "SERVICE-VERSION": service_version,
+            "SECURITY-APPNAME": API_KEY,
+            "RESPONSE-DATA-FORMAT": "JSON",
+            "itemFilter(0).name":"ListingType",
+            "itemFilter(0).value(0)":"Auction",
+            "keywords": keywords]
         
         Alamofire.request("\(host)/search/FindingService/\(api_version)", method: .get, parameters:
             parameters).responseJSON { response in

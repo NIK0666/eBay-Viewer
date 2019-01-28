@@ -10,9 +10,67 @@ import UIKit
 
 class ResultCell: UITableViewCell, NibLoadable {
 
+    @IBOutlet private weak var previewView: UIImageView!
     @IBOutlet private weak var descriptionLabel: UILabel!
     @IBOutlet private weak var conditionLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var betsLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!
+    
+    var item: FindingResultItem! {
+        didSet {
+            descriptionLabel.text = item.title.first ?? ""
+            
+            conditionLabel.text = item.condition?.first?.conditionDisplayName.first ?? ""
+
+            if let price = item.sellingStatus.first?.currentPrice.first {
+                priceLabel.text = "\(price.value) \(price.currencyID)"
+            }
+            if let bets = item.sellingStatus.first?.bidCount?.first {
+                betsLabel.text = "Bets: \(bets)"
+            }
+            
+            if let dateString = item.listingInfo.first?.endTime.first {
+                timeLabel.text = formatDateString(from: dateString)
+            }
+            
+            previewView.image = nil
+            if let url = item.galleryURL?.first {
+                previewView.setImage(from: url)
+            }
+            
+            
+            
+            
+        }
+    }
+    
+    func formatDateString(from string: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSSXXX"
+        guard let date = dateFormatter.date(from: string) else { return ""}
+
+        let currentDate = Date()
+        
+        let days = currentDate.days(to: date)
+        let hours = currentDate.hours(to: date)
+        let minutes = currentDate.minutes(to: date)
+        
+        var outStr = ""
+        
+        if days > 0 {
+            outStr.append("\(days)d ")
+        }
+        if hours > 0 {
+            outStr.append("\(hours)h ")
+        }
+        if days == 0 && minutes > 0 {
+            outStr.append("\(minutes)m")
+        }
+        
+        return outStr
+        
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

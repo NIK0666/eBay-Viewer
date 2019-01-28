@@ -10,10 +10,11 @@ import UIKit
 
 class NUSearchBar: UISearchBar {
 
+    var textFieldInsideSearchBar: UITextField!
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        let textFieldInsideSearchBar = value(forKey: "searchField") as? UITextField
+        textFieldInsideSearchBar = value(forKey: "searchField") as? UITextField
         textFieldInsideSearchBar?.textColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
         textFieldInsideSearchBar?.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
         

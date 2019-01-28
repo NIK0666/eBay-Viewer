@@ -34,13 +34,19 @@ class SearchViewController: UITableViewController/*, UISearchBarDelegate*/ {
     private func setupBindings() {
         
         searchBar.rx.textDidBeginEditing.subscribe({[weak self] _ in
-            self?.navigationItem.setHidesBackButton(true, animated: true)
+            //self?.navigationItem.setHidesBackButton(true, animated: true)
         }).disposed(by: disposeBag)
         
         searchBar.rx.textDidEndEditing.subscribe({[weak self] _ in
-            self?.navigationItem.setHidesBackButton(false, animated: true)
+            //self?.navigationItem.setHidesBackButton(false, animated: true)
         }).disposed(by: disposeBag)
         searchBar.rx.text.bind(to: viewModel.searchText).disposed(by: disposeBag)
+        
+        
+        searchBar.textFieldInsideSearchBar.rx.controlEvent(.editingDidEndOnExit).subscribe({[weak self] _ in
+            self?.viewModel.onSearch.onNext(self?.searchBar.textFieldInsideSearchBar.text ?? "")
+        }).disposed(by: disposeBag)
+        
         
         viewModel.results.asObservable().bind(to:tableView.rx.items) { (tableView, row, element) in
             let cell = tableView.dequeueReusableCell(withIdentifier: SearchCell.name) as! SearchCell
@@ -52,6 +58,7 @@ class SearchViewController: UITableViewController/*, UISearchBarDelegate*/ {
         tableView.rx.itemSelected.subscribe({ [weak self] indexPath in
             self?.viewModel.searchIndexSelected.onNext(indexPath.element!.item)
         }).disposed(by: disposeBag)
+        
         
     }
     
@@ -75,6 +82,7 @@ extension SearchViewController {
         static func decorate(_ vc: SearchViewController) {
             vc.navigationController?.setNavigationBarHidden(false, animated: true)
             vc.navigationController?.navigationBar.barStyle = .blackTranslucent
+            vc.searchBar.keyboardAppearance = .dark
         }
     }
     
