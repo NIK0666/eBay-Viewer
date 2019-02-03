@@ -10,7 +10,6 @@ import Foundation
 
 
 protocol NetworkServiceProtocol {
-    var API_KEY: String { get }
     var host: String { get }
     var api_version: String { get }
 }

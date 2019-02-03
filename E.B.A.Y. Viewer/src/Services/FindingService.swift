@@ -8,14 +8,14 @@
 
 import Foundation
 import Alamofire
-
+import Keys
 fileprivate struct FindingResponce: Codable {
     let findItemsByKeywordsResponse: [FindItemsByKeywordsResponse]
 }
 
 class FindingService: NetworkServiceProtocol {
     
-    var API_KEY: String = "EBAY_API_KEY"
+    let keys = EidolonKeys()
     var host: String = "https://svcs.ebay.com/services"
     var api_version: String = "v1"
     var service_version: String = "1.13.0"
@@ -25,11 +25,12 @@ class FindingService: NetworkServiceProtocol {
         let parameters = [
             "OPERATION-NAME": "findItemsByKeywords",
             "SERVICE-VERSION": service_version,
-            "SECURITY-APPNAME": API_KEY,
+            "SECURITY-APPNAME": keys.ebayAppID,
             "RESPONSE-DATA-FORMAT": "JSON",
             "itemFilter(0).name":"ListingType",
             "itemFilter(0).value(0)":"Auction",
             "keywords": keywords]
+        
         
         Alamofire.request("\(host)/search/FindingService/\(api_version)", method: .get, parameters:
             parameters).responseJSON { response in

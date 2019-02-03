@@ -17,3 +17,9 @@ target 'E.B.A.Y. Viewer' do
   end
 
 end
+
+plugin 'cocoapods-keys', {
+  :project => "Eidolon",
+  :keys => [
+    "EbayAppID"
+  ]}
