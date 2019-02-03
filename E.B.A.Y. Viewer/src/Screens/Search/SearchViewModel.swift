@@ -53,9 +53,7 @@ class SearchViewModel: SearchViewModelProtocol {
         
         searchText.debounce(0.3, scheduler: MainScheduler.instance)
             .subscribe({[weak self] str in
-                
-                guard let keyword = str.element! else { return }
-                guard keyword.count > 1 else { return }
+                guard str.element != nil, let keyword = str.element!, keyword.count > 1 else { return }
                 
                 self?.service.request(by: keyword, success: {[weak self] arr in
                     

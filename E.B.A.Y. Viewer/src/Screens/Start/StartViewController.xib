@@ -25,6 +25,7 @@
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Nva-RZ-PkX">
                     <rect key="frame" x="0.0" y="158" width="375" height="96"/>
+                    <color key="tintColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="96" id="cwh-iS-7ns"/>
                     </constraints>
@@ -35,7 +36,7 @@
                         <constraint firstAttribute="height" constant="48" id="P0L-7Q-CqH"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="24"/>
-                    <color key="textColor" name="lightGrayColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ACP-l3-vRB" customClass="NUButton" customModule="E_B_A_Y__Viewer" customModuleProvider="target">
@@ -66,7 +67,7 @@
                     </userDefinedRuntimeAttributes>
                 </button>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="SuD-IT-E4O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="FFg-36-qpF"/>
                 <constraint firstItem="Nva-RZ-PkX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="GLg-3g-U4b"/>
