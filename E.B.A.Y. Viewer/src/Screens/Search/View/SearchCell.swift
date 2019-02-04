@@ -13,7 +13,7 @@ class SearchCell: UITableViewCell, NibLoadable {
     
     @IBOutlet private weak var contentLabel: UILabel!
     
-    private let postfixAttributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Medium", size: 18)!, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)] as [NSAttributedString.Key : Any]
+    private let postfixAttributes = [NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Medium", size: 18)!, NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)] as [NSAttributedString.Key : Any]
     
     var searchHint: SearchHintModel! {
         didSet {

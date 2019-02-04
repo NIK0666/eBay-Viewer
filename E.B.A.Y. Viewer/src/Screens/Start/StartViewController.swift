@@ -34,10 +34,6 @@ class StartViewController: UIViewController, MVVMViewController {
         Decorator.decorate(self)
     }
     
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-    
 }
 
 extension StartViewController {

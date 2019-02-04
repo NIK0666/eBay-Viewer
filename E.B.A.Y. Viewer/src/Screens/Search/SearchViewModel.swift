@@ -16,6 +16,7 @@ protocol SearchViewModelProtocol: ViewModelProtocol {
     var searchIndexSelected: PublishSubject<Int> { get }
     var searchText: PublishSubject<String?> { get }
     var onSearch: PublishSubject<String> { get }
+    var cancelTapped: PublishSubject<Void> { get }
     
 }
 
@@ -26,6 +27,7 @@ class SearchViewModel: SearchViewModelProtocol {
     var searchText = PublishSubject<String?>()
     let searchIndexSelected = PublishSubject<Int>()
     let onSearch = PublishSubject<String>()
+    let cancelTapped = PublishSubject<Void>()
     
     var router: RouterProtocol
     let service = AutoSugService()
@@ -50,6 +52,11 @@ class SearchViewModel: SearchViewModelProtocol {
             let item = SearchHintModel(title: text.element!, prefix: "")
             self?.router.enqueueRoute(with: SearchRouter.RouteType.result(hint: item), animated: true, completion: nil)
         }).disposed(by: disposeBag)
+        
+        cancelTapped.subscribe({[weak self] _ in
+            self?.router.dismiss(animated: true, context: nil, completion: nil)
+        }).disposed(by: disposeBag)
+        
         
         searchText.debounce(0.3, scheduler: MainScheduler.instance)
             .subscribe({[weak self] str in
