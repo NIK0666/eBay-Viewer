@@ -56,6 +56,8 @@ class SearchRouter: RouterProtocol {
         }
     }
     
-    func dismiss(animated: Bool, context: Any?, completion: ItemClosure<Bool>?) { }
+    func dismiss(animated: Bool, context: Any?, completion: ItemClosure<Bool>?) {
+        baseVC?.navigationController?.popViewController(animated: true)
+    }
     
 }

@@ -55,11 +55,8 @@ extension ResultViewController {
         
         static func decorate(_ vc: ResultViewController) {
             vc.navigationController?.setNavigationBarHidden(false, animated: true)
-            vc.navigationController?.navigationBar.barStyle = .blackTranslucent
+            vc.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            
         }
-    }
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
     }
 }

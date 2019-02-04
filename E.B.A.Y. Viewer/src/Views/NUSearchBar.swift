@@ -15,21 +15,21 @@ class NUSearchBar: UISearchBar {
         super.init(frame: frame)
 
         textFieldInsideSearchBar = value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.textColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
-        textFieldInsideSearchBar?.backgroundColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        textFieldInsideSearchBar?.textColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+        textFieldInsideSearchBar?.backgroundColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+        tintColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
         
         textFieldInsideSearchBar?.clipsToBounds = true
-        textFieldInsideSearchBar?.layer.borderWidth = 1
-        textFieldInsideSearchBar?.layer.borderColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+        textFieldInsideSearchBar?.layer.borderColor = UIColor.clear.cgColor
         textFieldInsideSearchBar?.layer.cornerRadius = 18
         
         let textFieldInsideSearchBarLabel = textFieldInsideSearchBar!.value(forKey: "placeholderLabel") as? UILabel
-        textFieldInsideSearchBarLabel?.textColor = #colorLiteral(red: 0.6, green: 0.6, blue: 0.6, alpha: 1)
+        textFieldInsideSearchBarLabel?.textColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
         
         let glassIconView = textFieldInsideSearchBar?.leftView as? UIImageView
         
         glassIconView?.image = #imageLiteral(resourceName: "search.pdf")
-        glassIconView?.tintColor = #colorLiteral(red: 0.9450980392, green: 0.9450980392, blue: 0.9450980392, alpha: 1)
+        glassIconView?.tintColor = #colorLiteral(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {
