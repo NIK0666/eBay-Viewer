@@ -4,8 +4,4 @@ This application will use ebay api. First I want to implement a search by produc
 
 Current progress:
 
-![](progress.gif)
----
-Estimated Design:
-
-![](prototype.jpg)
+<img src="/Screens/1.png" width="24.5%">   <img src="/Screens/2.png" width="24.5%">   <img src="/Screens/3.png" width="24.5%">   <img src="/Screens/4.png" width="24.5%">
