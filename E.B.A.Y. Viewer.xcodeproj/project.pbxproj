@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		21942313E61F62F138AD182C /* Pods_E_B_A_Y__ViewerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1B0CBC998A87F24EB30A7AF /* Pods_E_B_A_Y__ViewerTests.framework */; };
+		2322FBCF22095C8A00800C51 /* ResultsFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2322FBCE22095C8A00800C51 /* ResultsFilterBar.swift */; };
+		2322FBD222096EE900800C51 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2322FBD022096EE900800C51 /* ResultViewController.swift */; };
+		2322FBD322096EE900800C51 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2322FBD122096EE900800C51 /* ResultViewController.xib */; };
 		232653E421FEEB6500F2AE9D /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232653E321FEEB6500F2AE9D /* UIImageView+Extension.swift */; };
 		232653E621FF0B1200F2AE9D /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 232653E521FF0B1200F2AE9D /* Date+Extension.swift */; };
 		237495FA21FDB3760038857A /* FindItemsByKeywordsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */; };
@@ -17,8 +20,6 @@
 		23E1112521FCC24900A348C8 /* SearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23E1112321FCC24900A348C8 /* SearchCell.xib */; };
 		23E1112921FCD2AB00A348C8 /* SearchHintModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1112821FCD2AB00A348C8 /* SearchHintModel.swift */; };
 		23E1112B21FCE22600A348C8 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1112A21FCE22600A348C8 /* NSMutableAttributedString+Extension.swift */; };
-		23E1112E21FCEDEB00A348C8 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1112C21FCEDEB00A348C8 /* ResultViewController.swift */; };
-		23E1112F21FCEDEB00A348C8 /* ResultViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23E1112D21FCEDEB00A348C8 /* ResultViewController.xib */; };
 		23E1113121FCEE0200A348C8 /* ResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1113021FCEE0200A348C8 /* ResultViewModel.swift */; };
 		23E1113321FCEE1400A348C8 /* ResultRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1113221FCEE1400A348C8 /* ResultRouter.swift */; };
 		23E1113721FCF51000A348C8 /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23E1113521FCF51000A348C8 /* ResultCell.swift */; };
@@ -62,6 +63,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2322FBCE22095C8A00800C51 /* ResultsFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsFilterBar.swift; sourceTree = "<group>"; };
+		2322FBD022096EE900800C51 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
+		2322FBD122096EE900800C51 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		232653E321FEEB6500F2AE9D /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		232653E521FF0B1200F2AE9D /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		237495F921FDB3760038857A /* FindItemsByKeywordsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindItemsByKeywordsResponse.swift; sourceTree = "<group>"; };
@@ -71,8 +75,6 @@
 		23E1112321FCC24900A348C8 /* SearchCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchCell.xib; sourceTree = "<group>"; };
 		23E1112821FCD2AB00A348C8 /* SearchHintModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHintModel.swift; sourceTree = "<group>"; };
 		23E1112A21FCE22600A348C8 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
-		23E1112C21FCEDEB00A348C8 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		23E1112D21FCEDEB00A348C8 /* ResultViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultViewController.xib; sourceTree = "<group>"; };
 		23E1113021FCEE0200A348C8 /* ResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewModel.swift; sourceTree = "<group>"; };
 		23E1113221FCEE1400A348C8 /* ResultRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRouter.swift; sourceTree = "<group>"; };
 		23E1113521FCF51000A348C8 /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
@@ -165,8 +167,8 @@
 			children = (
 				23E1113421FCF4F000A348C8 /* View */,
 				23E1113021FCEE0200A348C8 /* ResultViewModel.swift */,
-				23E1112C21FCEDEB00A348C8 /* ResultViewController.swift */,
-				23E1112D21FCEDEB00A348C8 /* ResultViewController.xib */,
+				2322FBD022096EE900800C51 /* ResultViewController.swift */,
+				2322FBD122096EE900800C51 /* ResultViewController.xib */,
 				23E1113221FCEE1400A348C8 /* ResultRouter.swift */,
 			);
 			path = Results;
@@ -186,6 +188,7 @@
 			children = (
 				23E1113521FCF51000A348C8 /* ResultCell.swift */,
 				23E1113621FCF51000A348C8 /* ResultCell.xib */,
+				2322FBCE22095C8A00800C51 /* ResultsFilterBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -435,8 +438,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				23E1112521FCC24900A348C8 /* SearchCell.xib in Resources */,
-				23E1112F21FCEDEB00A348C8 /* ResultViewController.xib in Resources */,
 				23E1113821FCF51000A348C8 /* ResultCell.xib in Resources */,
+				2322FBD322096EE900800C51 /* ResultViewController.xib in Resources */,
 				23F2CD6D21FB338900FFFCB7 /* LaunchScreen.storyboard in Resources */,
 				23F2CD6A21FB338900FFFCB7 /* Assets.xcassets in Resources */,
 				23F2B9E421FC447C007B0616 /* SearchViewController.xib in Resources */,
@@ -553,7 +556,6 @@
 				23E1112B21FCE22600A348C8 /* NSMutableAttributedString+Extension.swift in Sources */,
 				23F10BAD21FBA58100B8F1A4 /* SearchViewModel.swift in Sources */,
 				23F2CDA521FB8EA200FFFCB7 /* NUButton.swift in Sources */,
-				23E1112E21FCEDEB00A348C8 /* ResultViewController.swift in Sources */,
 				23F10BAB21FBA3C300B8F1A4 /* SearchRouter.swift in Sources */,
 				23E1113721FCF51000A348C8 /* ResultCell.swift in Sources */,
 				23E6FCEE21FE30BE00A5F95C /* NetworkServiceProtocol.swift in Sources */,
@@ -570,9 +572,11 @@
 				23F10BA921FBA27300B8F1A4 /* UIImage+Extension.swift in Sources */,
 				23E1113121FCEE0200A348C8 /* ResultViewModel.swift in Sources */,
 				23F2CD6321FB338800FFFCB7 /* AppDelegate.swift in Sources */,
+				2322FBCF22095C8A00800C51 /* ResultsFilterBar.swift in Sources */,
 				23F2CD8F21FB346E00FFFCB7 /* TypeAliases.swift in Sources */,
 				23F2CD9721FB34AB00FFFCB7 /* String+Extension.swift in Sources */,
 				23F2CD8921FB341E00FFFCB7 /* ViewModelProtocol.swift in Sources */,
+				2322FBD222096EE900800C51 /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

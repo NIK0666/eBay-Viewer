@@ -2,7 +2,7 @@
 //  ResultViewController.swift
 //  E.B.A.Y. Viewer
 //
-//  Created by NIKO on 26/01/2019.
+//  Created by NIKO on 05.02.2019.
 //  Copyright © 2019 NIKO. All rights reserved.
 //
 
@@ -10,18 +10,24 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class ResultViewController: UITableViewController {
+class ResultViewController: UIViewController {
 
+    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var tabBar: UITabBar!
+    
     private let disposeBag = DisposeBag()
     var viewModel: ResultViewModelProtocol!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tableView.dataSource = nil
         tableView.register(ResultCell.nib, forCellReuseIdentifier: ResultCell.name)
         
         setupBindings()
+        
+        tableView.delegate = self
+        
     }
     
     private func setupBindings() {
@@ -36,17 +42,17 @@ class ResultViewController: UITableViewController {
         
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         Decorator.decorate(self)
     }
-    
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+}
+
+extension ResultViewController: UITableViewDelegate {
+     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 128
-    }
-    
-    
-    
+     }
 }
 
 extension ResultViewController {

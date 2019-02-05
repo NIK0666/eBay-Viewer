@@ -32,7 +32,9 @@ class ResultViewModel: ResultViewModelProtocol {
         
         setupBindings()
         
-        service.request(by: hint.title, success: {[weak self] data  in
+        let filter = Filter(name: "ListingType", values: ["Auction","AuctionWithBIN"])
+        
+        service.request(by: hint.title, filters: [filter], success: {[weak self] data  in
             guard let items = data.searchResult.first?.item else { return }
             self?.results.accept(items)
         }) { error  in
