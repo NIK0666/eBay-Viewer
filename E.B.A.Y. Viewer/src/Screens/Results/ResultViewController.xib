@@ -35,8 +35,8 @@
                     </constraints>
                     <items>
                         <tabBarItem title="All" image="filter-all" id="g10-ow-cld"/>
-                        <tabBarItem title="Auction" image="filter-auction" id="q5u-dv-6xd"/>
-                        <tabBarItem title="Buy now" image="filter-shopping" id="fLR-BS-AnS"/>
+                        <tabBarItem tag="1" title="Auction" image="filter-auction" id="q5u-dv-6xd"/>
+                        <tabBarItem tag="2" title="Buy now" image="filter-shopping" id="fLR-BS-AnS"/>
                     </items>
                     <color key="tintColor" name="darkGrayColor"/>
                 </tabBar>

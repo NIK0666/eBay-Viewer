@@ -40,6 +40,17 @@ class ResultViewController: UIViewController {
             
             }.disposed(by: disposeBag)
         
+        tabBar.rx.didSelectItem.asObservable().subscribe({[weak self] item in
+            guard let `self` = self else {
+                return
+            }
+            self.viewModel.filterSelected.onNext(item.element!.tag)
+            }).disposed(by: disposeBag)
+        
+        viewModel.title.asObservable().subscribe({[weak self] title in
+            self?.title = title.element!.capitalizingFirstLetter()
+        }).disposed(by: disposeBag)
+        
     }
     
     
@@ -62,7 +73,7 @@ extension ResultViewController {
         static func decorate(_ vc: ResultViewController) {
             vc.navigationController?.setNavigationBarHidden(false, animated: true)
             vc.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
-            
+            vc.tabBar.selectedItem = vc.tabBar.items![0]
         }
     }
 }

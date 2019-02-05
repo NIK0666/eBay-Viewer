@@ -12,12 +12,16 @@ import RxCocoa
 
 protocol ResultViewModelProtocol: ViewModelProtocol {
     var results: BehaviorRelay<[FindingResultItem]> { get }
+    var filterSelected: BehaviorSubject<Int> { get }
+    var title: BehaviorRelay<String> { get }
 }
 
 
 class ResultViewModel: ResultViewModelProtocol {
     
+    let filterSelected = BehaviorSubject<Int>(value: 0)
     let results = BehaviorRelay<[FindingResultItem]>(value: [])
+    var title = BehaviorRelay<String>(value: "")
     
     var router: RouterProtocol
     var hint: SearchHintModel
@@ -30,19 +34,37 @@ class ResultViewModel: ResultViewModelProtocol {
         self.router = router
         self.hint = hint
         
-        setupBindings()
+        title.accept(hint.title)
         
-        let filter = Filter(name: "ListingType", values: ["Auction","AuctionWithBIN"])
-        
-        service.request(by: hint.title, filters: [filter], success: {[weak self] data  in
-            guard let items = data.searchResult.first?.item else { return }
-            self?.results.accept(items)
-        }) { error  in
-            
-        }
+        setupBindings()        
     }
     
     func setupBindings() {
+        filterSelected.subscribe({[weak self] index in
+            guard let `self` = self else {
+                return
+            }
+            var filters = [Filter]()
+            switch index.element {
+            case 1:
+                filters.append(Filter(name: "ListingType", values: [ListingType.auction.rawValue, ListingType.auctionWithBIN.rawValue]))
+            case 2:
+                filters.append(Filter(name: "ListingType", values: [ListingType.fixedPrice.rawValue,ListingType.storeInventory.rawValue]))
+                
+//            case fixedPrice = "FixedPrice"
+//            case storeInventory = "StoreInventory"
+            default: break
+            }
+            
+            self.service.request(by: self.hint.title, filters: filters, success: {[weak self] data  in
+                guard let items = data.searchResult.first?.item else { return }
+                self?.results.accept(items)
+            }) { error  in
+                
+            }
+            
+            
+        }).disposed(by: disposeBag)
         
         
         

@@ -25,13 +25,19 @@ class ResultCell: UITableViewCell, NibLoadable {
 
             if let price = item.sellingStatus.first?.currentPrice.first {
                 priceLabel.text = "\(price.value) \(price.currencyID)"
+            } else {
+                priceLabel.text = "Free"
             }
             if let bets = item.sellingStatus.first?.bidCount?.first {
                 betsLabel.text = "Bets: \(bets)"
+            } else {
+                betsLabel.text = "Buy now"
             }
             
             if let dateString = item.listingInfo.first?.endTime.first {
                 timeLabel.text = formatDateString(from: dateString)
+            } else {
+                timeLabel.text = ""
             }
             
             previewView.image = nil
