@@ -43,11 +43,7 @@ class SearchViewController: UITableViewController/*, UISearchBarDelegate*/ {
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: cancelButton)
         setupBindings()
     }
-    
-    @objc private func cancelActionHandler(sender: NUButton) {
-        print("!!!")
-    }
-    
+
     private func setupBindings() {
 
         searchBar.rx.text.bind(to: viewModel.searchText).disposed(by: disposeBag)
@@ -93,6 +89,7 @@ extension SearchViewController {
         static func decorate(_ vc: SearchViewController) {
             vc.navigationController?.setNavigationBarHidden(false, animated: true)
             vc.navigationItem.setHidesBackButton(true, animated: false)
+            vc.searchBar.becomeFirstResponder()
         }
     }
 }

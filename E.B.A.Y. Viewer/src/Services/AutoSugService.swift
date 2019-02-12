@@ -10,8 +10,6 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-//https://autosug.ebay.com/autosugtype?kwd=skyrim&_jgr=1&sId=0&_ch=0&callback=nil
-
 class AutoSugService {
     
     var host: String = "https://autosug.ebay.com/autosug"    
@@ -27,7 +25,6 @@ class AutoSugService {
                 }
                 
                 do {
-                    
                     
                     let json = try JSON(data: response.data!)
                     

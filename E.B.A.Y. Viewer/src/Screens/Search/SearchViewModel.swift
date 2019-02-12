@@ -62,9 +62,7 @@ class SearchViewModel: SearchViewModelProtocol {
             .subscribe({[weak self] str in
                 guard str.element != nil, let keyword = str.element!, keyword.count > 1 else { return }
                 
-                self?.service.request(by: keyword, success: {[weak self] arr in
-                    
-                    print("SUCCESS")
+                self?.service.request(by: keyword, success: {[weak self] arr in                    
                     
                     self?.results.accept(arr.map({ elem -> SearchHintModel in
                         return SearchHintModel(title: elem, prefix: keyword.lowercased())

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class ResultCell: UITableViewCell, NibLoadable {
 
@@ -15,35 +16,56 @@ class ResultCell: UITableViewCell, NibLoadable {
     @IBOutlet private weak var conditionLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
     @IBOutlet private weak var betsLabel: UILabel!
-    @IBOutlet private weak var timeLabel: UILabel!
+    @IBOutlet private weak var timeLabel: UILabel!    
     
     var item: FindingResultItem! {
         didSet {
             descriptionLabel.text = item.title.first ?? ""
             
-            conditionLabel.text = item.condition?.first?.conditionDisplayName.first ?? ""
+            conditionLabel.text = item.condition?.first?.conditionDisplayName?.first ?? ""
 
             if let price = item.sellingStatus.first?.currentPrice.first {
                 priceLabel.text = "\(price.value) \(price.currencyID)"
+            } else {
+                priceLabel.text = "Free"
             }
             if let bets = item.sellingStatus.first?.bidCount?.first {
                 betsLabel.text = "Bets: \(bets)"
+            } else {
+                betsLabel.text = "Buy now"
             }
             
             if let dateString = item.listingInfo.first?.endTime.first {
                 timeLabel.text = formatDateString(from: dateString)
+            } else {
+                timeLabel.text = ""
             }
             
             previewView.image = nil
             if let url = item.galleryURL?.first {
-                previewView.setImage(from: url)
+                setImage(from: url)
             }
-            
-            
-            
             
         }
     }
+    
+    func setImage( from urlString: String ) {
+        
+        Alamofire.request(urlString, method: .get).responseData { responce in
+            
+            guard responce.error == nil else {
+                print(responce.error!.localizedDescription)
+                return
+            }
+            
+            if responce.request?.url?.absoluteString == self.item.galleryURL?.first  {
+                self.previewView.image = UIImage(data: responce.data!, scale:1)
+            }
+            
+        }
+    }
+    
+    
     
     func formatDateString(from string: String) -> String {
         let dateFormatter = DateFormatter()

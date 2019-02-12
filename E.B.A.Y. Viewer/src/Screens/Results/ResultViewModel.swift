@@ -12,12 +12,18 @@ import RxCocoa
 
 protocol ResultViewModelProtocol: ViewModelProtocol {
     var results: BehaviorRelay<[FindingResultItem]> { get }
+    var filterSelected: BehaviorSubject<Int> { get }
+    var filterButtonTapped: PublishSubject<Void> { get }
+    var title: BehaviorRelay<String> { get }
 }
 
 
 class ResultViewModel: ResultViewModelProtocol {
     
+    let filterSelected = BehaviorSubject<Int>(value: 0)
+    var filterButtonTapped = PublishSubject<Void>()
     let results = BehaviorRelay<[FindingResultItem]>(value: [])
+    var title = BehaviorRelay<String>(value: "")
     
     var router: RouterProtocol
     var hint: SearchHintModel
@@ -30,28 +36,38 @@ class ResultViewModel: ResultViewModelProtocol {
         self.router = router
         self.hint = hint
         
-        setupBindings()
+        title.accept(hint.title)
         
-        service.request(by: hint.title, success: {[weak self] data  in
-            guard let items = data.searchResult.first?.item else { return }
-            self?.results.accept(items)
-        }) { error  in
-            
-        }
+        setupBindings()        
     }
     
     func setupBindings() {
+        filterSelected.subscribe({[weak self] index in
+            guard let `self` = self else {
+                return
+            }
+            var filters = [Filter]()
+            switch index.element {
+            case 1:
+                filters.append(Filter(name: "ListingType", values: [ListingType.auction.rawValue, ListingType.auctionWithBIN.rawValue]))
+            case 2:
+                filters.append(Filter(name: "ListingType", values: [ListingType.fixedPrice.rawValue,ListingType.storeInventory.rawValue]))
+            default: break
+            }
+            
+            self.service.request(by: self.hint.title, filters: filters, success: {[weak self] data  in
+                guard let items = data.searchResult.first?.item else { return }
+                self?.results.accept(items)
+            }) { error  in
+                
+            }
+            
+            
+        }).disposed(by: disposeBag)
         
+        filterButtonTapped.subscribe({[weak self]_ in
+            self?.router.enqueueRoute(with: ResultRouter.RouteType.filter)
+        }).disposed(by: disposeBag)
         
-        
-        //                self?.service.request(by: keyword, success: { model in
-        //                    if let items = model.searchResult.first?.item {
-        //                        print(items.count)
-        //                    } else {
-        //                        print("NOT FOUND")
-        //                    }
-        //                }) { error in
-        //                    print("ERROR")
-        //                }
     }
 }
