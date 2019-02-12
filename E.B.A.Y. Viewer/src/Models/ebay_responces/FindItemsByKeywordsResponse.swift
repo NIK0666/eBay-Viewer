@@ -65,7 +65,7 @@ struct FindingResultItem: Codable {
 
 struct Condition: Codable {
     let conditionID: [String]
-    let conditionDisplayName: [String]
+    let conditionDisplayName: [String]?
     
     enum CodingKeys: String, CodingKey {
         case conditionID = "conditionId"
@@ -171,4 +171,5 @@ enum ShippingType: String, Codable {
     case free = "Free"
     case freePickup = "FreePickup"
     case freight = "Freight"
+    case notSpecified = "NotSpecified"
 }

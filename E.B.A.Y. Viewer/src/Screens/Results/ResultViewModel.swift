@@ -13,6 +13,7 @@ import RxCocoa
 protocol ResultViewModelProtocol: ViewModelProtocol {
     var results: BehaviorRelay<[FindingResultItem]> { get }
     var filterSelected: BehaviorSubject<Int> { get }
+    var filterButtonTapped: PublishSubject<Void> { get }
     var title: BehaviorRelay<String> { get }
 }
 
@@ -20,6 +21,7 @@ protocol ResultViewModelProtocol: ViewModelProtocol {
 class ResultViewModel: ResultViewModelProtocol {
     
     let filterSelected = BehaviorSubject<Int>(value: 0)
+    var filterButtonTapped = PublishSubject<Void>()
     let results = BehaviorRelay<[FindingResultItem]>(value: [])
     var title = BehaviorRelay<String>(value: "")
     
@@ -50,9 +52,6 @@ class ResultViewModel: ResultViewModelProtocol {
                 filters.append(Filter(name: "ListingType", values: [ListingType.auction.rawValue, ListingType.auctionWithBIN.rawValue]))
             case 2:
                 filters.append(Filter(name: "ListingType", values: [ListingType.fixedPrice.rawValue,ListingType.storeInventory.rawValue]))
-                
-//            case fixedPrice = "FixedPrice"
-//            case storeInventory = "StoreInventory"
             default: break
             }
             
@@ -66,16 +65,9 @@ class ResultViewModel: ResultViewModelProtocol {
             
         }).disposed(by: disposeBag)
         
+        filterButtonTapped.subscribe({[weak self]_ in
+            self?.router.enqueueRoute(with: ResultRouter.RouteType.filter)
+        }).disposed(by: disposeBag)
         
-        
-        //                self?.service.request(by: keyword, success: { model in
-        //                    if let items = model.searchResult.first?.item {
-        //                        print(items.count)
-        //                    } else {
-        //                        print("NOT FOUND")
-        //                    }
-        //                }) { error in
-        //                    print("ERROR")
-        //                }
     }
 }

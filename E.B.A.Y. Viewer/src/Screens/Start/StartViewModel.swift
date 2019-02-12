@@ -12,7 +12,6 @@ import RxCocoa
 
 protocol StartViewModelProtocol: ViewModelProtocol {
     
-//    var isStartActive: BehaviorRelay<Bool> { get }
     var searchButtonTapped: PublishSubject<Void> { get }
     
 }
@@ -20,7 +19,6 @@ protocol StartViewModelProtocol: ViewModelProtocol {
 
 class StartViewModel: StartViewModelProtocol {
     
-//    let isStartActive = BehaviorRelay<Bool>(value: false)
     let searchButtonTapped = PublishSubject<Void>()
     
     var router: RouterProtocol
@@ -38,7 +36,6 @@ class StartViewModel: StartViewModelProtocol {
         searchButtonTapped.asObservable().subscribe({[weak self] _ in
             self?.router.enqueueRoute(with: StartRouter.RouteType.search)
         }).disposed(by: disposeBag)
-        
         
     }
 }

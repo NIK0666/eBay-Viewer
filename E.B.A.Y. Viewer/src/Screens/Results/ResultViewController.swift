@@ -23,11 +23,15 @@ class ResultViewController: UIViewController {
 
         tableView.dataSource = nil
         tableView.register(ResultCell.nib, forCellReuseIdentifier: ResultCell.name)
-        
+        setupNavigationBar()
         setupBindings()
         
         tableView.delegate = self
-        
+    }
+    
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action:/* #selector(showFilter)*/ nil)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     private func setupBindings() {
@@ -51,8 +55,15 @@ class ResultViewController: UIViewController {
             self?.title = title.element!.capitalizingFirstLetter()
         }).disposed(by: disposeBag)
         
+        navigationItem.rightBarButtonItem?.rx.tap.bind(to: viewModel.filterButtonTapped).disposed(by: disposeBag)
+        
     }
     
+    @objc func showFilter() {
+        //present(, animated: true, completion: nil)
+
+        
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -71,7 +82,6 @@ extension ResultViewController {
         private init() {}
         
         static func decorate(_ vc: ResultViewController) {
-            vc.navigationController?.setNavigationBarHidden(false, animated: true)
             vc.navigationController?.navigationBar.tintColor = #colorLiteral(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             vc.tabBar.selectedItem = vc.tabBar.items![0]
         }

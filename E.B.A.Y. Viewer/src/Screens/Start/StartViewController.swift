@@ -22,7 +22,6 @@ class StartViewController: UIViewController, MVVMViewController {
         super.viewDidLoad()
         
         setupBindings()
-        // Do any additional setup after loading the view.
     }
     
     private func setupBindings() {

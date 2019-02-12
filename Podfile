@@ -11,6 +11,9 @@ target 'E.B.A.Y. Viewer' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'SwiftyJSON'
+  pod 'SideMenu', '~> 5.0'
+  # pod 'Moya/RxSwift', '~> 12.0'
+  
   target 'E.B.A.Y. ViewerTests' do
     inherit! :search_paths
     # Pods for testing
