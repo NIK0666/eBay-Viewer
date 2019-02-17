@@ -50,11 +50,4 @@ class FilterViewController: UITableViewController {
 //            self?.viewModel.searchIndexSelected.onNext(indexPath.element!.item)
         }).disposed(by: disposeBag)
     }
-
-//
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: FilterCell.name) as! FilterCell
-//        return cell
-//    }
-    
 }

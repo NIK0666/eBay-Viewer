@@ -16,9 +16,24 @@ protocol FilterViewModelProtocol {
 
 class FilterViewModel: FilterViewModelProtocol {
     
-    let elements = BehaviorRelay<[FilterModel]>(value: [
-        FilterModel(caption: "Sort", values: ["Best Match","Time: ending soonest","Time: newly listeds","Price+Shipping: lowesy first","Price+Shipping: highest first","Dictsnce: nearest first"]),
-        FilterModel(caption: "Condition", values: ["Any", "New", "Used"])
+    private let sortArray = [
+        "Best Match",
+        "Time: ending soonest",
+        "Time: newly listeds",
+        "Price+Shipping: lowesy first",
+        "Price+Shipping: highest first",
+        "Dictsnce: nearest first"]
+    
+    private let conditionArray = [
+        "Any",
+        "New",
+        "Used"
+    ]
+    
+    
+    lazy var elements = BehaviorRelay<[FilterModel]>(value: [
+        FilterModel(caption: "Sort", values: sortArray),
+        FilterModel(caption: "Condition", values: conditionArray)
         ])
     var router: RouterProtocol
     private let disposeBag = DisposeBag()
